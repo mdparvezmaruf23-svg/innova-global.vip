@@ -1,0 +1,3339 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>INNOVA.GLOBAL</title>
+
+<style>
+:root{
+    --bg:#050505;
+    --card:#0d0d0d;
+    --gold:#d4af37;
+    --light-gold:#f1d76a;
+    --white:#ffffff;
+    --muted:#999;
+    --green:#31d17c;
+    --red:#ff6262;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:var(--bg);
+    color:var(--white);
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+button,
+input{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.hidden{
+    display:none!important;
+}
+
+.container{
+    width:min(1050px,92%);
+    margin:auto;
+}
+
+.logo{
+    width:145px;
+    height:145px;
+    border:3px solid var(--gold);
+    border-radius:50%;
+    margin:30px auto 20px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    box-shadow:
+        0 0 20px rgba(212,175,55,.25),
+        inset 0 0 20px rgba(212,175,55,.08);
+}
+
+.logo b{
+    font-size:27px;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:var(--light-gold);
+    font-size:18px;
+}
+
+.center{
+    text-align:center;
+}
+
+.gold{
+    color:var(--light-gold);
+}
+
+.bismillah{
+    color:var(--light-gold);
+    font-size:18px;
+    margin-top:10px;
+}
+
+h1{
+    font-size:38px;
+    margin:12px 0;
+}
+
+h2{
+    color:var(--light-gold);
+}
+
+.tagline{
+    color:#aaa;
+}
+
+.page{
+    min-height:100vh;
+    padding-bottom:50px;
+}
+
+.card,
+.section,
+.stat{
+    background:var(--card);
+    border:1px solid rgba(212,175,55,.25);
+    border-radius:15px;
+    padding:22px;
+    box-shadow:0 0 18px rgba(0,0,0,.4);
+}
+
+.section{
+    margin:22px 0;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin:25px 0;
+}
+
+.stat strong{
+    display:block;
+    color:var(--light-gold);
+    font-size:27px;
+    margin-top:8px;
+}
+
+.btn{
+    border:1px solid var(--gold);
+    background:var(--gold);
+    color:#050505;
+    border-radius:10px;
+    padding:13px 20px;
+    font-weight:bold;
+}
+
+.btn.alt{
+    background:transparent;
+    color:var(--light-gold);
+}
+
+.btn.danger{
+    background:transparent;
+    color:var(--red);
+    border-color:var(--red);
+}
+
+input{
+    width:100%;
+    height:55px;
+    background:#050505;
+    color:#fff;
+    border:1px solid #555;
+    border-radius:10px;
+    padding:0 16px;
+    outline:none;
+    margin:7px 0 15px;
+}
+
+input:focus{
+    border-color:var(--gold);
+}
+
+label{
+    color:#ccc;
+    font-size:14px;
+}
+
+.id-search-form{
+    display:flex;
+    gap:12px;
+}
+
+.id-search-form input{
+    height:64px;
+    border-color:var(--gold);
+    text-align:center;
+    font-size:17px;
+}
+
+.id-search-btn{
+    height:64px;
+    min-width:140px;
+}
+
+.topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 4%;
+    border-bottom:1px solid rgba(212,175,55,.2);
+}
+
+.back{
+    background:none;
+    border:0;
+    color:var(--light-gold);
+    font-weight:bold;
+}
+
+.form-card{
+    width:min(560px,92%);
+    margin:25px auto;
+}
+
+.notice{
+    background:#151515;
+    border:1px solid rgba(212,175,55,.25);
+    padding:14px;
+    border-radius:10px;
+    margin:12px 0;
+    color:#ccc;
+}
+
+.notice.success{
+    border-color:rgba(49,209,124,.5);
+}
+
+.notice.error{
+    border-color:rgba(255,98,98,.6);
+    color:#ffaaaa;
+}
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.avatar{
+    width:105px;
+    height:105px;
+    min-width:105px;
+
+    border-radius:50%;
+    border:3px solid var(--gold);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:var(--light-gold);
+    font-size:30px;
+
+    overflow:hidden;
+
+    box-shadow:0 0 20px rgba(212,175,55,.2);
+}
+
+.avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.package-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.package{
+    background:#090909;
+    border:1px solid rgba(212,175,55,.25);
+    border-radius:14px;
+    padding:18px;
+}
+
+.package h3{
+    color:var(--light-gold);
+}
+
+.price{
+    color:var(--light-gold);
+    font-size:26px;
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    color:#777;
+    padding:30px 0;
+}
+
+.network{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+}
+
+.node{
+    width:90px;
+    height:90px;
+
+    border:2px solid var(--gold);
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:var(--light-gold);
+    font-weight:bold;
+}
+
+.children{
+    display:flex;
+    gap:25px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+@media(max-width:650px){
+
+    h1{
+        font-size:29px;
+    }
+
+    .stats,
+    .package-grid{
+        grid-template-columns:1fr;
+    }
+
+    .id-search-form{
+        flex-direction:column;
+    }
+
+    .id-search-btn{
+        width:100%;
+    }
+
+    .profile{
+        align-items:flex-start;
+    }
+
+    .avatar{
+        width:85px;
+        height:85px;
+        min-width:85px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="app"></div>
+
+<script>
+
+/* =========================================================
+   INNOVA.GLOBAL DEMO DATABASE
+========================================================= */
+
+const DB_KEY = "INNOVA_GLOBAL_DATABASE_V3";
+
+const PAYMENT_NUMBER = "01313213083";
+const ACTIVATION_FEE = 200;
+
+let db = JSON.parse(localStorage.getItem(DB_KEY));
+
+if(!db){
+
+    db = {
+        members: [],
+        requests: [],
+        notifications: [],
+        nextId: 1,
+        currentMember: null
+    };
+
+}
+
+function saveDB(){
+
+    localStorage.setItem(
+        DB_KEY,
+        JSON.stringify(db)
+    );
+
+}
+
+function makeID(number){
+
+    return String(number).padStart(5,"0");
+
+}
+
+function getMember(id){
+
+    return db.members.find(
+        member => member.id === id
+    );
+
+}
+
+function getActiveMember(id){
+
+    const member = getMember(id);
+
+    if(member && member.active){
+        return member;
+    }
+
+    return null;
+
+}
+
+/* =========================================================
+   REFERRAL SYSTEM
+========================================================= */
+
+function getReferralFromURL(){
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    return params.get("ref") || "";
+
+}
+
+
+/*
+    প্রত্যেক Active Member-এর নিজের Referral Link
+*/
+
+function getReferralLink(memberID){
+
+    return window.location.origin +
+           window.location.pathname +
+           "?ref=" +
+           encodeURIComponent(memberID);
+
+}
+
+
+/*
+    Direct Partner
+*/
+
+function getDirectPartners(memberID){
+
+    return db.members.filter(member =>
+        member.active &&
+        member.uplineID === memberID
+    );
+
+}
+
+
+/*
+    পুরো Team
+*/
+
+function getTeam(memberID){
+
+    const team = [];
+
+    function findChildren(parentID){
+
+        const children =
+            getDirectPartners(parentID);
+
+        children.forEach(member => {
+
+            team.push(member);
+
+            findChildren(member.id);
+
+        });
+
+    }
+
+    findChildren(memberID);
+
+    return team;
+
+}
+
+
+/* =========================================================
+   NOTIFICATION
+========================================================= */
+
+function addNotification(
+    memberID,
+    title,
+    message
+){
+
+    db.notifications.unshift({
+
+        id:Date.now(),
+
+        memberID:memberID,
+
+        title:title,
+
+        message:message,
+
+        read:false,
+
+        date:new Date().toLocaleString("en-BD")
+
+    });
+
+}
+
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+function escapeHTML(value){
+
+    return String(value || "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+function logo(){
+
+    return `
+        <div class="logo">
+
+            <b>INNOVA</b>
+
+            <span>.GLOBAL</span>
+
+        </div>
+    `;
+
+}
+
+function backHome(){
+
+    return `
+        <button
+            class="back"
+            onclick="goHome()"
+        >
+            ← BACK
+        </button>
+    `;
+
+}
+
+function goHome(){
+
+    history.replaceState(
+        {},
+        "",
+        window.location.pathname
+    );
+
+    home();
+
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+function home(){
+
+    const activeMembers =
+        db.members.filter(
+            member => member.active
+        ).length;
+
+    document.getElementById("app").innerHTML = `
+
+    <div class="page">
+
+        ${logo()}
+
+        <div class="container center">
+
+            <div class="bismillah">
+                Bismillahir Rahmanir Rahim
+            </div>
+
+            <h1>
+                Welcome to
+                <span class="gold">
+                    INNOVA.GLOBAL
+                </span>
+            </h1>
+
+            <p class="tagline">
+                Connecting People, Building the Future.
+            </p>
+
+
+            <!-- STATS -->
+
+            <div class="stats">
+
+                <div class="stat">
+
+                    TOTAL MEMBERS
+
+                    <strong>
+                        ${activeMembers}
+                    </strong>
+
+                </div>
+
+                <div class="stat">
+
+                    TOTAL EARNINGS
+
+                    <strong>
+                        ৳0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- ABOUT -->
+
+            <div class="section"
+                 style="text-align:left">
+
+                <h2>
+                    About INNOVA.GLOBAL
+                </h2>
+
+                <p>
+                    INNOVA.GLOBAL is a modern
+                    digital platform designed to
+                    connect members through a
+                    simple, organized, and global
+                    network.
+                </p>
+
+                <p>
+                    Our goal is to provide members
+                    with a transparent and
+                    user-friendly platform where
+                    they can manage their profile,
+                    explore their network, track
+                    their activities, and access
+                    available platform services
+                    from one place.
+                </p>
+
+                <p>
+                    We believe in simplicity,
+                    transparency, and building a
+                    strong global community together.
+                </p>
+
+                <p class="gold">
+                    <b>
+                        INNOVA.GLOBAL —
+                        Connecting People,
+                        Building the Future.
+                    </b>
+                </p>
+
+            </div>
+
+
+            <!-- GLOBAL NETWORK -->
+
+            <div class="section">
+
+                <h2>
+                    Our Network
+                </h2>
+
+                <p>
+                    Explore active members,
+                    referral relationships,
+                    joining information,
+                    packages and platform activity.
+                </p>
+
+                <button
+                    class="btn alt"
+                    onclick="openNetwork()"
+                >
+                    GLOBAL NETWORK
+                </button>
+
+            </div>
+
+
+            <!-- FEATURES -->
+
+            <div class="section">
+
+                <h2>
+                    Our Features
+                </h2>
+
+                <p>
+                    Member Profile • Referral Link
+                    • Upline • Partner • Team
+                    • Packages • Notifications
+                    • INNOVA ID Search
+                </p>
+
+            </div>
+
+
+            <!-- ID SEARCH -->
+
+            <div class="section">
+
+                <h2>
+                    INNOVA ID Search
+                </h2>
+
+                <div class="id-search-form">
+
+                    <input
+                        id="searchID"
+                        placeholder="Enter INNOVA ID"
+                    >
+
+                    <button
+                        class="btn id-search-btn"
+                        onclick="searchMember()"
+                    >
+                        SEARCH
+                    </button>
+
+                </div>
+
+                <div id="searchResult"></div>
+
+            </div>
+
+
+            <!-- JOIN AREA -->
+
+            <div class="section">
+
+                <div
+                    class="gold"
+                    style="
+                        font-size:40px;
+                        font-weight:bold;
+                    "
+                >
+                    2026
+                </div>
+
+                <div>
+                    Global Digital Marketing
+                </div>
+
+                <div style="margin-top:12px">
+                    Starting
+                </div>
+
+                <h2>
+                    INNOVA.GLOBAL
+                </h2>
+
+                <button
+                    class="btn"
+                    onclick="openRegister()"
+                >
+                    CONTINUE / PROGRAM
+                </button>
+
+            </div>
+
+
+            <button
+                class="btn"
+                onclick="openRegister()"
+            >
+                JOIN NOW
+            </button>
+
+
+            <p>
+
+                <button
+                    class="btn alt"
+                    onclick="openLogin()"
+                >
+                    LOGIN
+                </button>
+
+            </p>
+
+
+            <footer>
+                © 2026 INNOVA.GLOBAL —
+                All Rights Reserved
+            </footer>
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   REGISTRATION
+========================================================= */
+
+function openRegister(){
+
+    const referralID =
+        getReferralFromURL();
+
+    const referralMember =
+        getActiveMember(referralID);
+
+
+    document.getElementById("app").innerHTML = `
+
+    <div class="page">
+
+        <div class="topbar">
+
+            ${backHome()}
+
+            <span class="gold">
+                CREATE YOUR ACCOUNT
+            </span>
+
+            <span></span>
+
+        </div>
+
+
+        ${logo()}
+
+
+        <div class="form-card card">
+
+            <h2 class="center">
+                CREATE YOUR ACCOUNT
+            </h2>
+
+
+            ${
+                referralMember
+                ?
+                `
+                <div class="notice success">
+
+                    Referral ID:
+                    <b class="gold">
+                        ${escapeHTML(referralID)}
+                    </b>
+
+                    <br>
+
+                    Upline:
+                    ${escapeHTML(referralMember.name)}
+
+                </div>
+                `
+                :
+                ""
+            }
+
+
+            <label>
+                Full Name
+            </label>
+
+            <input
+                id="regName"
+                placeholder="Enter full name"
+            >
+
+
+            <label>
+                Mobile Number
+            </label>
+
+            <input
+                id="regMobile"
+                inputmode="numeric"
+                placeholder="Enter mobile number"
+            >
+
+
+            <label>
+                Password
+            </label>
+
+            <input
+                id="regPassword"
+                type="password"
+                maxlength="8"
+                placeholder="Exactly 8 characters"
+            >
+
+
+            <label>
+                Confirm Password
+            </label>
+
+            <input
+                id="regPassword2"
+                type="password"
+                maxlength="8"
+                placeholder="Confirm password"
+            >
+
+
+            <label>
+                Referral ID
+            </label>
+
+            <input
+                id="regReferral"
+                value="${escapeHTML(referralID)}"
+                placeholder="Enter Referral ID"
+                ${referralMember ? "readonly" : ""}
+            >
+
+
+            <div id="registerMessage"></div>
+
+
+            <button
+                class="btn"
+                style="width:100%"
+                onclick="createAccount()"
+            >
+                CREATE ACCOUNT
+            </button>
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   CREATE ACCOUNT
+========================================================= */
+
+function createAccount(){
+
+    const name =
+        document.getElementById("regName")
+        .value.trim();
+
+    const mobile =
+        document.getElementById("regMobile")
+        .value.trim();
+
+    const password =
+        document.getElementById("regPassword")
+        .value;
+
+    const password2 =
+        document.getElementById("regPassword2")
+        .value;
+
+    const referralID =
+        document.getElementById("regReferral")
+        .value.trim();
+
+    const message =
+        document.getElementById(
+            "registerMessage"
+        );
+
+
+    if(
+        !name ||
+        !mobile ||
+        !password ||
+        !password2
+    ){
+
+        message.innerHTML = `
+            <div class="notice error">
+                Please complete all fields.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    if(password.length !== 8){
+
+        message.innerHTML = `
+            <div class="notice error">
+                Password must be exactly
+                8 characters.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    if(password !== password2){
+
+        message.innerHTML = `
+            <div class="notice error">
+                Passwords do not match.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    if(
+        db.members.some(
+            member =>
+            member.mobile === mobile
+        )
+    ){
+
+        message.innerHTML = `
+            <div class="notice error">
+                This mobile number is
+                already registered.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    /*
+       প্রথম account ছাড়া
+       প্রত্যেক account-এর Referral ID লাগবে
+    */
+
+    if(
+        db.members.length > 0 &&
+        !referralID
+    ){
+
+        message.innerHTML = `
+            <div class="notice error">
+                Referral ID is required.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    /*
+       Referral ID অবশ্যই Active Member-এর হতে হবে
+    */
+
+    if(
+        referralID &&
+        !getActiveMember(referralID)
+    ){
+
+        message.innerHTML = `
+            <div class="notice error">
+                Invalid or inactive
+                Referral ID.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    /*
+       নতুন unique ID
+    */
+
+    const newID =
+        makeID(db.nextId++);
+
+
+    const now =
+        new Date();
+
+
+    const newMember = {
+
+        id:newID,
+
+        name:name,
+
+        mobile:mobile,
+
+        password:password,
+
+        uplineID:
+            referralID || null,
+
+        active:false,
+
+        joinDate:
+            now.toLocaleDateString("en-GB"),
+
+        joinTime:
+            now.toLocaleTimeString(
+                "en-US",
+                {
+                    hour:"2-digit",
+                    minute:"2-digit"
+                }
+            ),
+
+        earning:0,
+
+        balance:0,
+
+        packages:[],
+
+        photo:""
+
+    };
+
+
+    db.members.push(
+        newMember
+    );
+
+
+    /*
+       Activation Request
+    */
+
+    db.requests.push({
+
+        id:Date.now(),
+
+        type:"ID_ACTIVATION",
+
+        memberID:newID,
+
+        amount:ACTIVATION_FEE,
+
+        status:"PENDING",
+
+        date:
+            now.toLocaleString("en-BD")
+
+    });
+
+
+    saveDB();
+
+
+    openActivation(
+        newID
+    );
+
+}
+
+
+/* =========================================================
+   ACTIVATION PAYMENT
+========================================================= */
+
+function openActivation(memberID){
+
+    document.getElementById("app").innerHTML = `
+
+    <div class="page">
+
+        <div class="topbar">
+
+            ${backHome()}
+
+            <span class="gold">
+                ACCOUNT ACTIVATION
+            </span>
+
+            <span></span>
+
+        </div>
+
+
+        ${logo()}
+
+
+        <div class="form-card card">
+
+            <h2 class="center">
+                ACCOUNT ACTIVATION
+            </h2>
+
+
+            <p class="center">
+                Complete the activation payment
+            </p>
+
+
+            <div class="notice center">
+
+                <div
+                    class="gold"
+                    style="
+                        font-size:40px;
+                        font-weight:bold;
+                    "
+                >
+                    ৳${ACTIVATION_FEE}
+                </div>
+
+                ACTIVATION FEE
+
+            </div>
+
+
+            <div class="notice">
+
+                <b class="gold">
+                    PAYMENT NUMBER
+                </b>
+
+                <br>
+
+                ${PAYMENT_NUMBER}
+
+            </div>
+
+
+            <label>
+                PAYMENT METHOD
+            </label>
+
+            <p>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="paymentMethod"
+                        value="bKash"
+                        checked
+                        style="
+                            width:auto;
+                            height:auto;
+                        "
+                    >
+
+                    bKash
+                </label>
+
+
+                <label>
+                    <input
+                        type="radio"
+                        name="paymentMethod"
+                        value="Nagad"
+                        style="
+                            width:auto;
+                            height:auto;
+                        "
+                    >
+
+                    Nagad
+                </label>
+
+            </p>
+
+
+            <label>
+                TRANSACTION ID
+            </label>
+
+            <input
+                id="transactionID"
+                placeholder="Enter Transaction ID"
+            >
+
+
+            <label>
+                PAYMENT SCREENSHOT
+            </label>
+
+            <input
+                id="paymentScreenshot"
+                type="file"
+                accept="image/*"
+            >
+
+
+            <div class="notice">
+
+                Your account will remain
+                <b>PENDING</b>
+                until admin reviews and approves.
+
+            </div>
+
+
+            <button
+                class="btn"
+                style="width:100%"
+                onclick="submitActivation('${memberID}')"
+            >
+                SUBMIT PAYMENT
+            </button>
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   SUBMIT PAYMENT
+========================================================= */
+
+function submitActivation(memberID){
+
+    const transactionID =
+        document.getElementById(
+            "transactionID"
+        ).value.trim();
+
+
+    if(!transactionID){
+
+        alert(
+            "Please enter Transaction ID."
+        );
+
+        return;
+
+    }
+
+
+    const request =
+        db.requests.find(
+            request =>
+            request.type ===
+            "ID_ACTIVATION" &&
+
+            request.memberID ===
+            memberID &&
+
+            request.status ===
+            "PENDING"
+        );
+
+
+    if(request){
+
+        request.transactionID =
+            transactionID;
+
+        request.paymentMethod =
+            document.querySelector(
+                'input[name="paymentMethod"]:checked'
+            ).value;
+
+        request.screenshot =
+            document.getElementById(
+                "paymentScreenshot"
+            ).files[0]?.name || "";
+
+    }
+
+
+    saveDB();
+
+    showPending(
+        memberID
+    );
+
+}
+
+
+/* =========================================================
+   PENDING
+========================================================= */
+
+function showPending(memberID){
+
+    document.getElementById("app").innerHTML = `
+
+    <div class="page">
+
+        ${logo()}
+
+        <div class="form-card card center">
+
+            <div
+                style="
+                    font-size:55px;
+                    color:var(--green);
+                "
+            >
+                ✓
+            </div>
+
+
+            <h2>
+                PAYMENT SUBMITTED
+            </h2>
+
+
+            <p>
+                Your activation request
+                has been submitted successfully.
+            </p>
+
+
+            <div
+                class="notice"
+                style="text-align:left"
+            >
+
+                INNOVA ID:
+                <b>${memberID}</b>
+
+                <br><br>
+
+                AMOUNT:
+                <b>৳${ACTIVATION_FEE}</b>
+
+                <br><br>
+
+                STATUS:
+                <span class="gold">
+                    ● PENDING APPROVAL
+                </span>
+
+            </div>
+
+
+            <p>
+                ID activation will be completed
+                after admin approval.
+            </p>
+
+
+            <button
+                class="btn alt"
+                onclick="goHome()"
+            >
+                BACK TO HOME
+            </button>
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+function openLogin(){
+
+    document.getElementById("app").innerHTML = `
+
+    <div class="page">
+
+        <div class="topbar">
+
+            ${backHome()}
+
+            <span class="gold">
+                LOGIN
+            </span>
+
+            <span></span>
+
+        </div>
+
+
+        ${logo()}
+
+
+        <div class="form-card card">
+
+            <h2 class="center">
+                MEMBER LOGIN
+            </h2>
+
+
+            <label>
+                Mobile Number
+            </label>
+
+            <input
+                id="loginMobile"
+                inputmode="numeric"
+                placeholder="Mobile Number"
+            >
+
+
+            <label>
+                Password
+            </label>
+
+            <input
+                id="loginPassword"
+                type="password"
+                maxlength="8"
+                placeholder="8-character Password"
+            >
+
+
+            <div id="loginMessage"></div>
+
+
+            <button
+                class="btn"
+                style="width:100%"
+                onclick="loginMember()"
+            >
+                LOGIN
+            </button>
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   LOGIN MEMBER
+========================================================= */
+
+function loginMember(){
+
+    const mobile =
+        document.getElementById(
+            "loginMobile"
+        ).value.trim();
+
+    const password =
+        document.getElementById(
+            "loginPassword"
+        ).value;
+
+
+    const member =
+        db.members.find(
+            member =>
+            member.mobile === mobile &&
+            member.password === password
+        );
+
+
+    const message =
+        document.getElementById(
+            "loginMessage"
+        );
+
+
+    if(!member){
+
+        message.innerHTML = `
+            <div class="notice error">
+                Invalid mobile number
+                or password.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    if(!member.active){
+
+        message.innerHTML = `
+            <div class="notice error">
+                Your account is still
+                pending activation.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    db.currentMember =
+        member.id;
+
+    saveDB();
+
+    dashboard();
+
+}
+
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
+function dashboard(){
+
+    const member =
+        getMember(
+            db.currentMember
+        );
+
+
+    if(
+        !member ||
+        !member.active
+    ){
+
+        openLogin();
+
+        return;
+
+    }
+
+
+    const directPartners =
+        getDirectPartners(
+            member.id
+        ).length;
+
+
+    const totalTeam =
+        getTeam(
+            member.id
+        ).length;
+
+
+    document.getElementById("app").innerHTML = `
+
+    <div class="page">
+
+        <div class="topbar">
+
+            <button
+                class="back"
+                onclick="openMenu()"
+            >
+                ☰
+            </button>
+
+
+            <span class="gold">
+                DASHBOARD
+            </span>
+
+
+            <button
+                class="back"
+                onclick="openSettings()"
+            >
+                ⚙️
+            </button>
+
+        </div>
+
+
+        <div class="container">
+
+
+            <!-- PROFILE -->
+
+            <div class="section profile">
+
+                <div class="avatar">
+
+                    ${
+                        member.photo
+                        ?
+                        `<img
+                            src="${member.photo}"
+                        >`
+                        :
+                        escapeHTML(
+                            member.name
+                            .charAt(0)
+                            .toUpperCase()
+                        )
+                    }
+
+                </div>
+
+
+                <div>
+
+                    <h2
+                        style="margin:0"
+                    >
+                        ${escapeHTML(member.name)}
+                    </h2>
+
+                    <div>
+                        UID:
+                        ${member.id}
+                    </div>
+
+                    <div
+                        style="
+                            color:var(--green);
+                        "
+                    >
+                        ● ID ACTIVE
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SHOW MORE -->
+
+            <div
+                class="center"
+                style="margin:20px 0"
+            >
+
+                <button
+                    class="btn alt"
+                    onclick="showMore()"
+                >
+                    SHOW MORE ▼
+                </button>
+
+            </div>
+
+
+            <div
+                id="moreDetails"
+                class="section hidden"
+            ></div>
+
+
+            <!-- STATS -->
+
+            <div class="stats">
+
+                <div class="stat">
+
+                    TOTAL EARNING
+
+                    <strong>
+                        ৳${member.earning}
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    TOTAL BALANCE
+
+                    <strong>
+                        ৳${member.balance}
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    TOTAL TEAM
+
+                    <strong>
+                        ${totalTeam}
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    TOTAL PARTNER
+
+                    <strong>
+                        ${directPartners}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- PACKAGES -->
+
+            <div class="section">
+
+                <h2>
+                    PACKAGES
+                </h2>
+
+                ${packageList(member)}
+
+            </div>
+
+
+            <!-- VEO WALL -->
+
+            <div class="section">
+
+                <h2>
+                    VEO WALL
+                </h2>
+
+                ${veoWall(member)}
+
+            </div>
+
+
+        </div>
+
+
+        <!-- MENU -->
+
+        <div
+            id="menuOverlay"
+            class="hidden"
+            onclick="closeMenu()"
+            style="
+                position:fixed;
+                inset:0;
+                background:#0009;
+                z-index:10;
+            "
+        ></div>
+
+
+        <div
+            id="sideMenu"
+            class="hidden"
+            style="
+                position:fixed;
+                left:0;
+                top:0;
+                bottom:0;
+                width:280px;
+                background:#090909;
+                border-right:1px solid var(--gold);
+                padding:25px;
+                z-index:11;
+            "
+        >
+
+            <button
+                class="btn alt"
+                style="width:100%;margin-bottom:10px"
+                onclick="withdrawPage()"
+            >
+                💸 WITHDRAW
+            </button>
+
+
+            <button
+                class="btn alt"
+                style="width:100%;margin-bottom:10px"
+                onclick="notificationPage()"
+            >
+                🔔 NOTIFICATIONS
+            </button>
+
+
+            <button
+                class="btn danger"
+                style="width:100%"
+                onclick="logout()"
+            >
+                🚪 LOGOUT
+            </button>
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   SHOW MORE
+========================================================= */
+
+function showMore(){
+
+    const member =
+        getMember(
+            db.currentMember
+        );
+
+    const box =
+        document.getElementById(
+            "moreDetails"
+        );
+
+
+    box.classList.toggle(
+        "hidden"
+    );
+
+
+    if(
+        box.classList.contains(
+            "hidden"
+        )
+    ){
+
+        return;
+
+    }
+
+
+    box.innerHTML = `
+
+        <h3 class="gold">
+            MEMBER DETAILS
+        </h3>
+
+
+        <b>
+            REFERRAL LINK
+        </b>
+
+
+        <div
+            style="
+                display:flex;
+                gap:8px;
+                margin:8px 0 18px;
+            "
+        >
+
+            <input
+                id="myReferralLink"
+                value="${escapeHTML(
+                    getReferralLink(member.id)
+                )}"
+                readonly
+                style="margin:0"
+            >
+
+
+            <button
+                class="btn"
+                onclick="copyReferralLink()"
+            >
+                COPY
+            </button>
+
+        </div>
+
+
+        <b>
+            UID
+        </b>
+
+        <p>
+            ${member.id}
+        </p>
+
+
+        <b>
+            UPLINE ID
+        </b>
+
+        <p>
+            ${member.uplineID || "NONE"}
+        </p>
+
+
+        <b>
+            JOINING DATE
+        </b>
+
+        <p>
+            ${member.joinDate}
+        </p>
+
+
+        <b>
+            JOINING TIME
+        </b>
+
+        <p>
+            ${member.joinTime}
+        </p>
+
+    `;
+
+}
+
+
+/* =========================================================
+   COPY REFERRAL
+========================================================= */
+
+function copyReferralLink(){
+
+    const link =
+        document.getElementById(
+            "myReferralLink"
+        ).value;
+
+
+    if(
+        navigator.clipboard
+    ){
+
+        navigator.clipboard.writeText(
+            link
+        );
+
+    }
+
+
+    alert(
+        "Referral Link copied."
+    );
+
+}
+
+
+/* =========================================================
+   PACKAGE LIST
+========================================================= */
+
+const packages = [
+
+    {
+        name:"STARTER",
+        price:200,
+        duration:"15 days",
+        description:
+        "12 Ad/Task activities • ~20 sec each"
+    },
+
+    {
+        name:"BASIC",
+        price:300,
+        duration:"15 days",
+        description:
+        "12 Ad/Task activities • ~25 sec each"
+    },
+
+    {
+        name:"BRONZE",
+        price:400,
+        duration:"15 days",
+        description:
+        "12 Ad/Task activities • ~30 sec each"
+    },
+
+    {
+        name:"SILVER",
+        price:500,
+        duration:"15 days",
+        description:
+        "Quiz + Reaction Challenge • 10 questions"
+    },
+
+    {
+        name:"GOLD",
+        price:600,
+        duration:"15 days",
+        description:
+        "Puzzle + Memory Challenge"
+    },
+
+    {
+        name:"PREMIUM",
+        price:600,
+        duration:"15 days",
+        description:
+        "Advanced Quiz + Puzzle • 15 questions"
+    },
+
+    {
+        name:"ADVANCED",
+        price:1000,
+        duration:"15 days",
+        description:
+        "Hard Quiz + Logic + Memory + Reaction"
+    },
+
+    {
+        name:"ELITE",
+        price:1500,
+        duration:"15 days",
+        description:
+        "Expert Quiz + Advanced Logic + Memory + Leaderboard"
+    }
+
+];
+
+
+function packageList(member){
+
+    return `
+
+    <div class="package-grid">
+
+        ${
+            packages.map(pkg => {
+
+                const active =
+                    member.packages
+                    .includes(pkg.name);
+
+
+                return `
+
+                <div class="package">
+
+                    <h3>
+                        ${pkg.name}
+                    </h3>
+
+
+                    <div class="price">
+                        ৳${pkg.price}
+                    </div>
+
+
+                    <p>
+                        ${pkg.duration}
+                    </p>
+
+
+                    <p>
+                        ${pkg.description}
+                    </p>
+
+
+                    <button
+                        class="btn ${
+                            active
+                            ? "alt"
+                            : ""
+                        }"
+                        onclick="
+                            packageDetails(
+                                '${pkg.name}'
+                            )
+                        "
+                    >
+                        VIEW PACKAGE
+                    </button>
+
+                </div>
+
+                `;
+
+            }).join("")
+        }
+
+    </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   PACKAGE DETAILS
+========================================================= */
+
+function packageDetails(name){
+
+    const member =
+        getMember(
+            db.currentMember
+        );
+
+    const pkg =
+        packages.find(
+            p => p.name === name
+        );
+
+
+    const active =
+        member.packages
+        .includes(name);
+
+
+    document.getElementById("app").innerHTML = `
+
+    <div class="page">
+
+        <div class="topbar">
+
+            <button
+                class="back"
+                onclick="dashboard()"
+            >
+                ← BACK
+            </button>
+
+            <span class="gold">
+                ${name}
+            </span>
+
+            <span></span>
+
+        </div>
+
+
+        ${logo()}
+
+
+        <div class="form-card card">
+
+            <h2>
+                ${name}
+            </h2>
+
+
+            <div class="price">
+                ৳${pkg.price}
+            </div>
+
+
+            <p>
+                ${pkg.duration}
+            </p>
+
+
+            <p>
+                ${pkg.description}
+            </p>
+
+
+            ${
+                active
+                ?
+                `
+                <div class="notice success">
+                    ● PACKAGE ACTIVE
+                </div>
+
+                <button
+                    class="btn"
+                    onclick="
+                        alert(
+                          'Activities will be connected here.'
+                        )
+                    "
+                >
+                    OPEN ACTIVITIES
+                </button>
+                `
+                :
+                `
+                <div class="notice">
+                    This package is not active yet.
+                </div>
+
+                <button
+                    class="btn"
+                    onclick="
+                        requestPackage(
+                            '${name}'
+                        )
+                    "
+                >
+                    ACTIVATE
+                </button>
+                `
+            }
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   PACKAGE REQUEST
+========================================================= */
+
+function requestPackage(name){
+
+    const pkg =
+        packages.find(
+            p => p.name === name
+        );
+
+
+    db.requests.push({
+
+        id:Date.now(),
+
+        type:"PACKAGE_ACTIVATION",
+
+        memberID:
+            db.currentMember,
+
+        package:name,
+
+        amount:
+            pkg.price,
+
+        status:"PENDING",
+
+        date:
+            new Date()
+            .toLocaleString("en-BD")
+
+    });
+
+
+    addNotification(
+
+        db.currentMember,
+
+        "📦 PACKAGE REQUEST",
+
+        name +
+        " package activation request is pending admin approval."
+
+    );
+
+
+    saveDB();
+
+
+    alert(
+        "Package activation request submitted."
+    );
+
+
+    dashboard();
+
+}
+
+
+/* =========================================================
+   SEARCH MEMBER
+========================================================= */
+
+function searchMember(){
+
+    const id =
+        document.getElementById(
+            "searchID"
+        ).value.trim();
+
+
+    const member =
+        getActiveMember(id);
+
+
+    const result =
+        document.getElementById(
+            "searchResult"
+        );
+
+
+    if(!member){
+
+        result.innerHTML = `
+
+            <div class="notice error">
+
+                Active member not found.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    const direct =
+        getDirectPartners(
+            member.id
+        ).length;
+
+
+    const team =
+        getTeam(
+            member.id
+        ).length;
+
+
+    result.innerHTML = `
+
+        <div
+            class="notice"
+            style="text-align:left"
+        >
+
+            <b class="gold">
+                INNOVA ID:
+                ${member.id}
+            </b>
+
+            <br><br>
+
+            Name:
+            ${escapeHTML(member.name)}
+
+            <br>
+
+            Status:
+            <span
+                style="color:var(--green)"
+            >
+                ● ACTIVE
+            </span>
+
+            <br>
+
+            Joining Date:
+            ${member.joinDate}
+
+            <br>
+
+            Joining Time:
+            ${member.joinTime}
+
+            <br>
+
+            Upline ID:
+            ${member.uplineID || "NONE"}
+
+            <br>
+
+            Total Earning:
+            ৳${member.earning}
+
+            <br>
+
+            Total Balance:
+            ৳${member.balance}
+
+            <br>
+
+            Total Partner:
+            ${direct}
+
+            <br>
+
+            Total Team:
+            ${team}
+
+            <br>
+
+            Active Packages:
+            ${member.packages.length}
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   GLOBAL NETWORK
+========================================================= */
+
+function openNetwork(){
+
+    const activeMembers =
+        db.members.filter(
+            member => member.active
+        );
+
+
+    document.getElementById("app").innerHTML = `
+
+    <div class="page">
+
+        <div class="topbar">
+
+            ${backHome()}
+
+            <span class="gold">
+                GLOBAL NETWORK
+            </span>
+
+            <span></span>
+
+        </div>
+
+
+        ${logo()}
+
+
+        <div class="container">
+
+            <div class="section">
+
+                <h2>
+                    Active Member Network
+                </h2>
+
+
+                ${
+                    activeMembers.length === 0
+                    ?
+                    `
+                    <div class="notice">
+                        No active members yet.
+                    </div>
+                    `
+                    :
+                    renderNetworkRoots()
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+
+function renderNetworkRoots(){
+
+    const roots =
+        db.members.filter(
+            member =>
+            member.active &&
+            !member.uplineID
+        );
+
+
+    return roots
+        .map(
+            root =>
+            renderNode(root.id)
+        )
+        .join("");
+
+}
+
+
+function renderNode(memberID){
+
+    const member =
+        getActiveMember(memberID);
+
+
+    if(!member){
+        return "";
+    }
+
+
+    const children =
+        getDirectPartners(
+            memberID
+        );
+
+
+    return `
+
+        <div
+            class="network"
+            style="margin:20px"
+        >
+
+            <div
+                class="node"
+                title="${escapeHTML(member.name)}"
+            >
+                ${member.id}
+            </div>
+
+
+            ${
+                children.length
+                ?
+                `
+                <div class="children">
+
+                    ${
+                        children.map(
+                            child =>
+                            renderNode(child.id)
+                        ).join("")
+                    }
+
+                </div>
+                `
+                :
+                ""
+            }
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   VEO WALL
+========================================================= */
+
+function veoWall(member){
+
+    const notifications =
+        db.notifications.filter(
+            n =>
+            n.memberID === member.id
+        ).slice(0,5);
+
+
+    if(
+        notifications.length === 0
+    ){
+
+        return `
+            <div class="notice">
+                No new updates.
+            </div>
+        `;
+
+    }
+
+
+    return notifications.map(
+        n => `
+
+        <div class="notice">
+
+            <b>
+                ${escapeHTML(n.title)}
+            </b>
+
+            <br>
+
+            ${escapeHTML(n.message)}
+
+            <br>
+
+            <small>
+                ${escapeHTML(n.date)}
+            </small>
+
+        </div>
+
+        `
+    ).join("");
+
+}
+
+
+/* =========================================================
+   MENU
+========================================================= */
+
+function openMenu(){
+
+    document
+        .getElementById("sideMenu")
+        .classList.remove("hidden");
+
+    document
+        .getElementById("menuOverlay")
+        .classList.remove("hidden");
+
+}
+
+
+function closeMenu(){
+
+    document
+        .getElementById("sideMenu")
+        .classList.add("hidden");
+
+    document
+        .getElementById("menuOverlay")
+        .classList.add("hidden");
+
+}
+
+
+/* =========================================================
+   NOTIFICATIONS
+========================================================= */
+
+function notificationPage(){
+
+    closeMenu();
+
+
+    const list =
+        db.notifications.filter(
+            n =>
+            n.memberID ===
+            db.currentMember
+        );
+
+
+    list.forEach(
+        n => n.read = true
+    );
+
+
+    saveDB();
+
+
+    document.getElementById("app").innerHTML = `
+
+    <div class="page">
+
+        <div class="topbar">
+
+            <button
+                class="back"
+                onclick="dashboard()"
+            >
+                ← BACK
+            </button>
+
+            <span class="gold">
+                NOTIFICATIONS
+            </span>
+
+            <span></span>
+
+        </div>
+
+
+        ${logo()}
+
+
+        <div class="container">
+
+            <div class="section">
+
+                ${
+                    list.length
+                    ?
+                    list.map(
+                        n => `
+
+                        <div class="notice">
+
+                            <b>
+                                ${escapeHTML(n.title)}
+                            </b>
+
+                            <br>
+
+                            ${escapeHTML(n.message)}
+
+                            <br>
+
+                            <small>
+                                ${escapeHTML(n.date)}
+                            </small>
+
+                        </div>
+
+                        `
+                    ).join("")
+                    :
+                    `
+                    <div class="notice">
+                        No notifications.
+                    </div>
+                    `
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   SETTINGS
+========================================================= */
+
+function openSettings(){
+
+    const member =
+        getMember(
+            db.currentMember
+        );
+
+
+    document.getElementById("app").innerHTML = `
+
+    <div class="page">
+
+        <div class="topbar">
+
+            <button
+                class="back"
+                onclick="dashboard()"
+            >
+                ← BACK
+            </button>
+
+            <span class="gold">
+                SETTINGS
+            </span>
+
+            <span></span>
+
+        </div>
+
+
+        ${logo()}
+
+
+        <div class="form-card card">
+
+            <h2>
+                EDIT PROFILE
+            </h2>
+
+
+            <label>
+                Profile Picture
+            </label>
+
+            <input
+                id="profilePhoto"
+                type="file"
+                accept="image/*"
+            >
+
+
+            <label>
+                Name
+            </label>
+
+            <input
+                id="profileName"
+                value="${escapeHTML(member.name)}"
+            >
+
+
+            <div class="notice">
+
+                INNOVA ID cannot be changed.
+
+            </div>
+
+
+            <button
+                class="btn"
+                onclick="saveProfile()"
+            >
+                SAVE CHANGES
+            </button>
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+
+function saveProfile(){
+
+    const member =
+        getMember(
+            db.currentMember
+        );
+
+
+    member.name =
+        document.getElementById(
+            "profileName"
+        ).value.trim() ||
+        member.name;
+
+
+    const file =
+        document.getElementById(
+            "profilePhoto"
+        ).files[0];
+
+
+    if(file){
+
+        const reader =
+            new FileReader();
+
+
+        reader.onload = function(){
+
+            member.photo =
+                reader.result;
+
+            saveDB();
+
+            dashboard();
+
+        };
+
+
+        reader.readAsDataURL(file);
+
+    }
+    else{
+
+        saveDB();
+
+        dashboard();
+
+    }
+
+}
+
+
+/* =========================================================
+   WITHDRAW PAGE
+========================================================= */
+
+function withdrawPage(){
+
+    closeMenu();
+
+
+    const member =
+        getMember(
+            db.currentMember
+        );
+
+
+    const direct =
+        getDirectPartners(
+            member.id
+        ).length;
+
+
+    document.getElementById("app").innerHTML = `
+
+    <div class="page">
+
+        <div class="topbar">
+
+            <button
+                class="back"
+                onclick="dashboard()"
+            >
+                ← BACK
+            </button>
+
+            <span class="gold">
+                WITHDRAW
+            </span>
+
+            <span></span>
+
+        </div>
+
+
+        ${logo()}
+
+
+        <div class="form-card card">
+
+            <h2>
+                WITHDRAW
+            </h2>
+
+
+            <div class="notice">
+
+                AVAILABLE BALANCE
+
+                <br>
+
+                <b
+                    class="gold"
+                    style="font-size:28px"
+                >
+                    ৳${member.balance}
+                </b>
+
+            </div>
+
+
+            <label>
+                WITHDRAW AMOUNT
+            </label>
+
+            <input
+                id="withdrawAmount"
+                type="number"
+                min="1"
+                placeholder="Enter Amount"
+            >
+
+
+            <label>
+                PAYMENT METHOD
+            </label>
+
+            <p>
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="withdrawMethod"
+                        value="bKash"
+                        checked
+                        style="
+                            width:auto;
+                            height:auto;
+                        "
+                    >
+
+                    bKash
+
+                </label>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="withdrawMethod"
+                        value="Nagad"
+                        style="
+                            width:auto;
+                            height:auto;
+                        "
+                    >
+
+                    Nagad
+
+                </label>
+
+            </p>
+
+
+            <label>
+                RECEIVER NUMBER
+            </label>
+
+            <input
+                id="receiverNumber"
+                inputmode="numeric"
+                placeholder="Enter Number"
+            >
+
+
+            <div class="notice">
+
+                প্রতিদিন রাত
+                <b>১০:০০টা — ১১:০০টা</b>
+                পর্যন্ত Withdrawal Request
+                Submit করা যাবে।
+
+            </div>
+
+
+            <div class="notice">
+
+                প্রয়োজনীয় Direct Referral:
+                <b>10</b>
+
+                <br>
+
+                আপনার Direct Referral:
+                <b>${direct}</b>
+
+            </div>
+
+
+            <button
+                class="btn"
+                onclick="submitWithdraw()"
+            >
+                SUBMIT WITHDRAW REQUEST
+            </button>
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   SUBMIT WITHDRAW
+========================================================= */
+
+function submitWithdraw(){
+
+    const member =
+        getMember(
+            db.currentMember
+        );
+
+
+    const amount =
+        Number(
+            document.getElementById(
+                "withdrawAmount"
+            ).value
+        );
+
+
+    const direct =
+        getDirectPartners(
+            member.id
+        ).length;
+
+
+    const hour =
+        new Date().getHours();
+
+
+    if(
+        hour < 22 ||
+        hour >= 23
+    ){
+
+        alert(
+            "Withdrawal system is open from 10:00 PM to 11:00 PM."
+        );
+
+        return;
+
+    }
+
+
+    if(direct < 10){
+
+        alert(
+            "You need 10 direct active referrals."
+        );
+
+        return;
+
+    }
+
+
+    if(
+        !amount ||
+        amount <= 0 ||
+        amount > member.balance
+    ){
+
+        alert(
+            "Invalid withdrawal amount."
+        );
+
+        return;
+
+    }
+
+
+    if(
+        !document.getElementById(
+            "receiverNumber"
+        ).value.trim()
+    ){
+
+        alert(
+            "Enter receiver number."
+        );
+
+        return;
+
+    }
+
+
+    member.balance -= amount;
+
+
+    db.requests.push({
+
+        id:Date.now(),
+
+        type:"WITHDRAWAL",
+
+        memberID:
+            member.id,
+
+        amount:amount,
+
+        method:
+            document.querySelector(
+                'input[name="withdrawMethod"]:checked'
+            ).value,
+
+        receiver:
+            document.getElementById(
+                "receiverNumber"
+            ).value.trim(),
+
+        status:"PENDING",
+
+        date:
+            new Date()
+            .toLocaleString("en-BD")
+
+    });
+
+
+    addNotification(
+
+        member.id,
+
+        "💸 WITHDRAWAL SUBMITTED",
+
+        "Your withdrawal request has been submitted."
+
+    );
+
+
+    saveDB();
+
+    dashboard();
+
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+function logout(){
+
+    db.currentMember =
+        null;
+
+    saveDB();
+
+    goHome();
+
+}
+
+
+/* =========================================================
+   AUTO REFERRAL
+========================================================= */
+
+function checkReferralLink(){
+
+    const ref =
+        getReferralFromURL();
+
+
+    /*
+       Referral Link থাকলে
+       Registration Page খুলবে
+    */
+
+    if(ref){
+
+        const member =
+            getActiveMember(ref);
+
+
+        if(member){
+
+            openRegister();
+
+            return;
+
+        }
+
+    }
+
+
+    home();
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+checkReferralLink();
+
+</script>
+
+</body>
+</html>
